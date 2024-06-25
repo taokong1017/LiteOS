@@ -93,3 +93,21 @@ Huawei LiteOS自开源社区发布以来，围绕NB-IoT物联网市场从技术�
 ## 加入我们
 * 欢迎提交issue对关心的问题发起讨论，欢迎提交PR参与特性建设
 * 如您有合作意向，希望加入Huawei LiteOS生态合作伙伴，请发邮件至liteos@huawei.com，或访问<a href="http://www.huawei.com/liteos" target="_blank">LiteOS官网</a>，进一步了解详细信息
+
+## 调试功能
+#环境配置
+sudo apt install python3-pip
+python3 -m pip install kconfiglib
+
+#编译配置
+cd /home/ws/Src/LiteOS; cp tools/build/config/qemu-virt-a53.config ./.config -f; 
+
+export PYTHONPATH=/usr/local/lib/python3.8/dist-packages
+export PATH=$PATH:/home/ws/aarch64-none-linux-gnu/bin
+
+make  CROSS_COMPILE=aarch64-none-linux-gnu- menuconfig
+make  CROSS_COMPILE=aarch64-none-linux-gnu- -j
+
+
+./qemu-system-aarch64 -machine virt -smp 2 -m 512M -cpu cortex-a53 -kernel out/qemu-virt-a53/Huawei_LiteOS.elf -nographic -S -s
+./qemu-system-aarch64 -machine virt  -cpu cortex-a53 -kernel out/qemu-virt-a53/Huawei_LiteOS.elf -nographic
