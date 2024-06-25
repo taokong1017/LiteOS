@@ -30,7 +30,7 @@ UINT32 test_tasks_init(VOID)
 	TSK_INIT_PARAM_S task_init_param1;
 
     memset(&task_init_param, 0, sizeof(TSK_INIT_PARAM_S));
-    task_init_param.usTaskPrio = 5;
+    task_init_param.usTaskPrio = 3;
     task_init_param.pcName = "master_task";
     task_init_param.pfnTaskEntry = (TSK_ENTRY_FUNC)master_task_entry;
     task_init_param.uwStackSize = 0x6000;
