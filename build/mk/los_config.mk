@@ -62,7 +62,7 @@ else
 include $(LITEOSTOPDIR)/build/mk/compiler_gcc.mk
 endif
 
-HIDE    := @
+HIDE    := 
 MKDIR    = mkdir
 RM       = -rm -rf
 ECHO     = echo
@@ -247,7 +247,7 @@ LITEOS_GCOV_OPTS := -fprofile-arcs -ftest-coverage -Wno-maybe-uninitialized
 LITEOS_BASELIB += -lgcov
 endif
 
-LITEOS_LD_OPTS += -nostartfiles -static --gc-sections
+LITEOS_LD_OPTS += -static --gc-sections
 
 ifeq ($(LOSCFG_PLATFORM_PBX_A9), y)
 LITEOS_COMPILER_GCCLIB_PATH = $(GCC_GCCLIB_PATH)

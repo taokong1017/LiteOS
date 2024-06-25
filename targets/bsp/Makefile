@@ -186,6 +186,8 @@ endif
 
 LOCAL_SRCS += $(wildcard common/demo_entry.c)
 
+LOCAL_SRCS += $(wildcard common/demo_test.c)
+
 LOCAL_INCLUDE += -I $(LITEOSTOPDIR)/include
 
 ifeq ($(LOSCFG_COMPONNETS_NET_AT), y)

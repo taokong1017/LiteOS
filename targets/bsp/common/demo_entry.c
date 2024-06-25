@@ -28,6 +28,7 @@
 
 #include "los_typedef.h"
 #include "los_task.h"
+#include "demo_test.h"
 
 #ifdef CONFIG_FEATURE_FOTA
 #include "ota_port.h"
@@ -395,6 +396,12 @@ UINT32 DemoEntry(VOID)
         PRINT_ERR("Shell Init Failed.\n");
     }
 #endif
+
+    ret = test_tasks_init();
+    if (ret != LOS_OK) {
+        PRINT_ERR("Test Task Creat Fail.\n");
+        return ret;
+    }
 
     return ret;
 }
