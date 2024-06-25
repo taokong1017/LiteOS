@@ -18,7 +18,7 @@ void slave_task_entry(void)
 	while (true) {
 		priority = LOS_TaskPriGet(g_master_tskHandle);
 		printf("slave task priority = %d\n", priority);
-		LOS_Mdelay(10);
+		LOS_Mdelay(1000);
 	}
 }
 
